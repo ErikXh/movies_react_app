@@ -3,6 +3,7 @@ import './App.css'
 import './assets/search.svg'
 import MovieCard from './components/MovieCard';
 import Carouel from './components/MoviesCarousel';
+import Footer from './components/footer';
 
 // API key => d8bf3081
 
@@ -65,6 +66,7 @@ function App() {
         </div>
       )
     }
+    <Footer/>
     </>
   )
 }

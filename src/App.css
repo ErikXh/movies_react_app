@@ -17,9 +17,52 @@ body {
   background-color: #42708f;
 }
 
+footer{
+  background-image: linear-gradient(360deg,
+  #062133 0%,
+  rgba(249, 211, 180, 0) 100%);
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+li{
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color: #f9d3b4;
+}
+
+h3{
+  color: #f9d3b4;
+}
+
+.flex{
+  display: flex;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.space-around{
+  justify-content: space-around;
+}
+
+.p-2{
+  padding: 2rem;
+}
+
+.w-30{
+  width: 30%;
+}
+
 .app {
   padding: 4rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
