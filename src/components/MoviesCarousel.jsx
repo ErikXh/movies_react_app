@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function Carouel () {
 
-    const index = 0;
+    const [index, setIndex] = useState(1);
 
     const movies = [
         {
@@ -22,54 +22,70 @@ function Carouel () {
         }
     ];
 
-    function changeImg(){
-
-        movies[index].img;
-        movies[index].alt;
-        movies[index].desc;
-    }
-
-    // function rightArrow(index){
-    //     index = (index - 1 + movies.length) % movies.length;
-    //     changeImg(index)
-    //     console.log('clicked right')
-    // }
-
-    // function leftArrow(index){
-    //     index = (index + 1) % movies.length;
-    //     changeImg(index)
-    //     console.log('clicked left')
-    // }
-
+    const changeImg = (newIndex) => {
+        setIndex(newIndex);
+    };
 
     return(
+    //     <div className="c-container">
+    //     <div className="carousel">
+    //         <button type="button" className="indication-btn" onClick={()=>{
+    //             index = (index - 1 + movies.length) % movies.length;
+    //             changeImg()
+    //             console.log('clicked left')
+    //         }}>
+    //             <i className="ri-arrow-drop-left-line"></i>
+    //         </button>
+    //         <div>
+    //             <img src={movies[index].img} alt={movies[index].alt}/>
+    //             <div className="movie-desc">
+    //             <h1>{movies[index].desc}</h1>
+    //             <button className="watch-btn">Watch Now</button> 
+    //             </div>
+
+    //         </div>
+    //         <button type="button" className="indication-btn" onClick={()=>{
+    //             index = (index + 1) % movies.length;
+    //             changeImg()
+    //             console.log('clicked right')
+    //         }}>
+    //             <i className="ri-arrow-drop-right-line"></i>
+    //         </button>
+    //     </div>
+
+    // </div>
         <div className="c-container">
-
-        <div className="carousel">
-            <button type="button" className="indication-btn" onClick={()=>{
-                index = (index - 1 + movies.length) % movies.length;
-                changeImg()
-            }}>
-                <i className="ri-arrow-drop-left-line"></i>
-            </button>
-            <div>
-                <img src={movies[index].img} alt={movies[index].alt}/>
-                <div className="movie-desc">
-                <h1>{movies[index].desc}</h1>
-                <button className="watch-btn">Watch Now</button> 
+            <div className="carousel">
+                <button
+                    type="button"
+                    className="indication-btn"
+                    onClick={() => {
+                        const newIndex = (index - 1 + movies.length) % movies.length;
+                        changeImg(newIndex);
+                    }}
+                >
+                    <i className="ri-arrow-drop-left-line"></i>
+                </button>
+                <div>
+                    <img src={movies[index].img} alt={movies[index].alt} />
+                    <div className="movie-desc">
+                        <h1>{movies[index].desc}</h1>
+                        <button className="watch-btn">Watch Now</button>
+                    </div>
                 </div>
-
+                <button
+                    type="button"
+                    className="indication-btn"
+                    onClick={() => {
+                        const newIndex = (index + 1) % movies.length;
+                        changeImg(newIndex);
+                    }}
+                >
+                    <i className="ri-arrow-drop-right-line"></i>
+                </button>
             </div>
-            <button type="button" className="indication-btn" onClick={()=>{
-                index = (index + 1) % movies.length;
-                changeImg()
-            }}>
-                <i className="ri-arrow-drop-right-line"></i>
-            </button>
         </div>
-
-    </div>
-    )
+    );
 }
 
 export default Carouel
