@@ -27,64 +27,30 @@ function Carouel () {
     };
 
     return(
-    //     <div className="c-container">
-    //     <div className="carousel">
-    //         <button type="button" className="indication-btn" onClick={()=>{
-    //             index = (index - 1 + movies.length) % movies.length;
-    //             changeImg()
-    //             console.log('clicked left')
-    //         }}>
-    //             <i className="ri-arrow-drop-left-line"></i>
-    //         </button>
-    //         <div>
-    //             <img src={movies[index].img} alt={movies[index].alt}/>
-    //             <div className="movie-desc">
-    //             <h1>{movies[index].desc}</h1>
-    //             <button className="watch-btn">Watch Now</button> 
-    //             </div>
-
-    //         </div>
-    //         <button type="button" className="indication-btn" onClick={()=>{
-    //             index = (index + 1) % movies.length;
-    //             changeImg()
-    //             console.log('clicked right')
-    //         }}>
-    //             <i className="ri-arrow-drop-right-line"></i>
-    //         </button>
-    //     </div>
-
-    // </div>
         <div className="c-container">
-            <div className="carousel">
-                <button
-                    type="button"
-                    className="indication-btn"
-                    onClick={() => {
-                        const newIndex = (index - 1 + movies.length) % movies.length;
-                        changeImg(newIndex);
-                    }}
-                >
-                    <i className="ri-arrow-drop-left-line"></i>
-                </button>
-                <div>
-                    <img src={movies[index].img} alt={movies[index].alt} />
-                    <div className="movie-desc">
-                        <h1>{movies[index].desc}</h1>
-                        <button className="watch-btn">Watch Now</button>
-                    </div>
+        <div className="carousel">
+            <button type="button" className="indication-btn" onClick={()=>{
+               const newIndex = (index - 1 + movies.length) % movies.length;
+                changeImg(newIndex)
+            }}>
+                <i className="ri-arrow-drop-left-line"></i>
+            </button>
+            <div>
+                <img src={movies[index].img} alt={movies[index].alt}/>
+                <div className="movie-desc">
+                <h1>{movies[index].desc}</h1>
+                <button className="watch-btn">Watch Now</button> 
                 </div>
-                <button
-                    type="button"
-                    className="indication-btn"
-                    onClick={() => {
-                        const newIndex = (index + 1) % movies.length;
-                        changeImg(newIndex);
-                    }}
-                >
-                    <i className="ri-arrow-drop-right-line"></i>
-                </button>
             </div>
+            <button type="button" className="indication-btn" onClick={()=>{
+              const  newIndex = (index + 1) % movies.length;
+                changeImg(newIndex)
+            }}>
+                <i className="ri-arrow-drop-right-line"></i>
+            </button>
         </div>
+
+    </div>
     );
 }
 
