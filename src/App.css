@@ -276,7 +276,8 @@ font-size: 4rem;
 .carousel img{
   max-width: 1024px;
   border-radius: 1rem;
-  transition: 0.5s ease-in-out;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
   
 .movie-desc{
@@ -348,3 +349,14 @@ font-size: 4rem;
     margin: 1rem;
   }
 }
+/* 
+
+Animation addedexperimental
+
+@keyframes fede {
+  20%{opacity: 0.2;}
+  40%{opacity: 0.4;}
+  60%{opacity: 0.6;}
+  80%{opacity: 0.8;}
+  1000%{opacity: 1;}
+} */
