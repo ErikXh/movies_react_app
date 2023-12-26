@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function Carouel () {
 
-    const [index, setIndex] = useState(1);
+    const [index, setIndex] = useState(0);
 
     const movies = [
         {
@@ -26,14 +26,29 @@ function Carouel () {
         setIndex(newIndex);
     };
 
+    function goLeft(){
+        const newIndex = (index - 1 + movies.length) % movies.length;
+        changeImg(newIndex)
+    }
+
+    function goRight(){
+        const  newIndex = (index + 1) % movies.length
+        changeImg(newIndex);
+    }
+
+    useEffect(()=>{
+        const intervalId = setInterval(() => {
+                            goRight()}, 3000);
+                            return () => clearInterval(intervalId);
+    }),[index, movies.length]
+
     return(
         <div className="c-container">
         <div className="carousel">
             <button type="button" className="indication-btn" onClick={()=>{
-               const newIndex = (index - 1 + movies.length) % movies.length;
-                changeImg(newIndex)
+               goLeft();
             }}>
-                <i className="ri-arrow-drop-left-line"></i>
+            <i className="ri-arrow-drop-left-line"></i>
             </button>
             <div>
                 <img src={movies[index].img} alt={movies[index].alt}/>
@@ -43,8 +58,7 @@ function Carouel () {
                 </div>
             </div>
             <button type="button" className="indication-btn" onClick={()=>{
-              const  newIndex = (index + 1) % movies.length;
-                changeImg(newIndex)
+              goRight();
             }}>
                 <i className="ri-arrow-drop-right-line"></i>
             </button>
